@@ -7,36 +7,36 @@ POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Краска",
-  "description": ""
+  "title": "Редиска",
+  "description": "Слад"
 }
 
 ###
 
 # получение продуктов
-GET {{baseUrl}}/products/?ordering=title
+GET {{baseUrl}}/products/?ordering=id
 Content-Type: application/json
 
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/33/
+PATCH {{baseUrl}}/products/37/
 Content-Type: application/json
 
 {
-  "description": "Красная"
+  "description": "Сладкая"
 }
 
 ###
 
 # удаление продукта
-DELETE {{baseUrl}}/products/33/
+DELETE {{baseUrl}}/products/35/
 Content-Type: application/json
 
 ###
 
 # поиск продуктов по названию и описанию
-GET {{baseUrl}}/products/?search=ма
+GET {{baseUrl}}/products/?search=зе
 Content-Type: application/json
 
 ###
@@ -46,17 +46,17 @@ POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "9мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "address": "Ваши любимые продукты.ул.Ленина 30",
   "positions": [
     {
-      "product": 5,
-      "quantity": 250,
-      "price": 15
+      "product": 24,
+      "quantity": 256,
+      "price": 123
     },
     {
-      "product": 6,
-      "quantity": 100,
-      "price": 10
+      "product": 37,
+      "quantity": 67,
+      "price": 345
     }
   ]
 }
@@ -64,20 +64,20 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/12/
+PATCH {{baseUrl}}/stocks/10/
 Content-Type: application/json
 
 {
   "positions": [
     {
-      "product": 5,
-      "quantity": 200,
-      "price": 500.80
+      "product": 30,
+      "quantity": 1000,
+      "price": 780.80
     },
     {
-      "product": 4,
-      "quantity": 100,
-      "price": 154
+      "product": 31,
+      "quantity": 6200,
+      "price": 12
     }
   ]
 }
@@ -85,11 +85,17 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=5
+GET {{baseUrl}}/stocks/?products=30
 Content-Type: application/json
 
 ###
 
 # поиск складов
-GET {{baseUrl}}/stocks/?page=2
+GET {{baseUrl}}/stocks/
+Content-Type: application/json
+
+###
+
+# поиск складов, где есть определенный продукт по названию
+GET {{baseUrl}}/stocks/?search=клю
 Content-Type: application/json
